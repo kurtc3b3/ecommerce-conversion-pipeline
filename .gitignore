@@ -216,3 +216,18 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Airflow
+airflow/logs/
+
+# ML pipeline
+data/raw/*.csv
+data/raw/*.zip
+data/processed/
+mlruns/
+.dvc/cache
+.dvc/tmp
+models/*
+!models/.gitkeep
+bentoml/
+*.parquet
