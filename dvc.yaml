@@ -1,0 +1,17 @@
+# DVC pipeline — stages will be implemented incrementally.
+#
+# Planned flow (orchestrated by Airflow DAG conversion_batch_training):
+#   ingest → dbt_features → feast_materialize → train → export_bentoml
+
+stages:
+  ingest:
+    cmd: echo "Download Olist data into data/raw/ — see data/README.md"
+    outs:
+      - data/raw/.gitkeep
+
+  train:
+    cmd: python training/train.py
+    deps:
+      - training/train.py
+    outs:
+      - models/.gitkeep
